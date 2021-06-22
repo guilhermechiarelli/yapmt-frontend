@@ -114,17 +114,11 @@ export default {
         return;
       }
 
-      const response = await api.post(`task/${this.projectId}`, {
+      await api.post(`task/${this.projectId}`, {
         ...this.newTaskValues,
       });
 
-      this.tasks.push({ ...response.data });
-
-      this.summary.total += 1;
-
-      if (isBefore(new Date(response.data.dueDate), new Date())) {
-        this.summary.late += 1;
-      }
+      await this.getProjectTasks();
 
       this.newTaskString = null;
       this.newTaskFieldEnabled = false;
@@ -165,7 +159,6 @@ export default {
         if (willDelete) {
           await api.delete(`/project/${this.projectId}`);
           this.$router.push('/');
-          this.getProjects();
           window.location.reload();
         }
       });
