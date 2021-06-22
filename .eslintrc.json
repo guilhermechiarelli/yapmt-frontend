@@ -1,0 +1,41 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:vue/essential",
+        "airbnb-base",
+        "plugin:prettier/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "vue",
+        "prettier"
+    ],
+    "rules": {
+      "import/prefer-default-export": "off",
+      "import/extensions": ["error", "always", {
+        "js": "never",
+        "vue": "never"
+      }],
+      "vue/experimental-script-setup-vars": "off",
+      "prettier/prettier": "error",
+      "no-underscore-dangle": "off",
+      "no-param-reassign": "off"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".vue"]
+        }
+      }
+    }
+}
